@@ -55,10 +55,9 @@
 				<div class="container-fluid">
 
 				<!-- End of Topbar -->
-					<!-- Page Heading -->
-					
-					
-					&nbsp;&nbsp;						
+					<!-- Page Heading -->			
+					&nbsp;&nbsp;
+											
 						<div class="form-group row">
 						<label>
 						<a href="reco_update" class="btn btn-secondary btn-icon-split">
@@ -239,5 +238,7 @@
 	<!-- geolocation으로 gps수신 -->
 	<script src="js/geolocation.js"></script>
 	
+	<!-- loading.js -->
+	<script src="js/loading.js"></script>
 </body>
 </html>

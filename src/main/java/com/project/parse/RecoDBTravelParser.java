@@ -91,7 +91,7 @@ public class RecoDBTravelParser {
         jObj1 = (JsonObject) jObj1.get("response");
         jObj1 = (JsonObject) jObj1.get("body");
         JsonArray memberArray = (JsonArray) jObj1.get("items");
-        System.out.println(memberArray);
+        
         List<RecoDTO> list = new ArrayList<RecoDTO>();
         
         
@@ -125,7 +125,7 @@ public class RecoDBTravelParser {
         
         
         
-        System.out.println(pageNo);
+        
         return list;
     }
 }

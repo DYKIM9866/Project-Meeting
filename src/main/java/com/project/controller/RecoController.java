@@ -31,13 +31,6 @@ public class RecoController {
 	RecoDAO dao;
 	
 	
-	//메인
-	@RequestMapping(value = "/reco_main", method = RequestMethod.GET)
-	public String reco(Model model) throws IOException, InterruptedException {
-
-		return "/reco/reco";
-	}
-	
 	//서브젝트별 리스트 불러오기
 	@RequestMapping(value = "/reco", method = RequestMethod.GET)
 	public String recoStudy(Model model,
@@ -72,9 +65,9 @@ public class RecoController {
 	public String recoUpdate() throws IOException, InterruptedException {
 		dao.insertData();
 
-		System.out.println("업데이트 완료");
 		
-		return "redirect:/reco_main";
+		
+		return "redirect:/reco";
 	}
 	
 	//하나의 데이터를 불러와서 그 정보와 지도를 호출

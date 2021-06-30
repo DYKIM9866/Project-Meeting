@@ -104,7 +104,7 @@ public class RecoDBStudyParser {
         jObj1 = (JsonObject) jObj1.get("response");
         jObj1 = (JsonObject) jObj1.get("body");
         JsonArray memberArray = (JsonArray) jObj1.get("items");
-        System.out.println(memberArray);
+        
         List<RecoDTO> list = new ArrayList<RecoDTO>();
         
         for (int i = 0; i < memberArray.size(); i++) {
@@ -135,7 +135,7 @@ public class RecoDBStudyParser {
         }
         
         
-        System.out.println(pageNo);
+        
         return list;
         
         
