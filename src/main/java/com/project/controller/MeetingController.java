@@ -114,7 +114,7 @@ public class MeetingController {
 		HttpSession session = req.getSession();
 		session.removeAttribute("userInfo");
 
-		return "redirect:/main.action";
+		return "redirect:/login.action";
 	}
 
 

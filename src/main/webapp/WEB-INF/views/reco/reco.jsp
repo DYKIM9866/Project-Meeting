@@ -57,15 +57,19 @@
 				<!-- End of Topbar -->
 					<!-- Page Heading -->			
 					&nbsp;&nbsp;
-											
+				
 						<div class="form-group row">
+						<div class="update">
 						<label>
-						<a href="reco_update" class="btn btn-secondary btn-icon-split">
+						<a href="reco_update" class="btn btn-secondary btn-icon-split"
+						onclick="disabled">
 							<span class="icon text-white-50"> <i
 								class="fas fa-arrow-right"></i>
 						</span> <span class="text">자료 업데이트</span>
 						</a>
 						</label>
+						</div>
+						
 					
                 <pre>                       </pre>      	
 				<form action="reco" method="get">
