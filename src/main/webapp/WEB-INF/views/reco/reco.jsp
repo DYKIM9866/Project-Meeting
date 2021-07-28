@@ -14,7 +14,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Insert title here</title>
+<title>Recommend</title>
 
 <!-- Custom fonts for this template -->
 <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
@@ -32,8 +32,8 @@
 <link href="vendor/datatables/dataTables.bootstrap4.min.css"
 	rel="stylesheet">
 
-</head>
 
+</head>
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -50,7 +50,9 @@
             <div id="content">
             
             	<!-- TOP BAR -->
-            	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+            	
+            	<jsp:include page="/WEB-INF/views/header.jsp" ></jsp:include>
+            	
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
 

@@ -9,14 +9,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 <!-- 데이터 총 갯수 불러오기 -->
-
 <select id="getMaxNum" parameterType="hashmap" resultType="int">
 	 	select count(recoNum) 
 		from recommend 
 		where subject like '%'||#{subject, jdbcType=VARCHAR}||'%'
-		and ${searchKey} like '%'||#{searchValue, jdbcType=VARCHAR}||'%'
-
-	
+		and ${searchKey} like '%'||#{searchValue, jdbcType=VARCHAR}||'%'	
 </select>
 
 

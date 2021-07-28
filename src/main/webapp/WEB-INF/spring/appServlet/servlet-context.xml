@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+<beans:beans
+	xmlns="http://www.springframework.org/schema/mvc"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
@@ -7,12 +8,14 @@
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-	
-	<!-- Enables the Spring MVC @Controller programming model -->
-	<annotation-driven/>
+	<!-- DispatcherServlet Context: defines this servlet's request-processing 
+		infrastructure -->
 
-	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
+		up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/css/**" location="/resources/css/" />
 	<resources mapping="/img/**" location="/resources/img/" />
@@ -22,84 +25,101 @@
 	<resources mapping="/upload/**" location="file:///C:/upload/" />
 	<resources mapping="/image/**" location="file:///C:/image/" />
 
-	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
-	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
+		in the /WEB-INF/views directory -->
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	
+
 	<!-- 어노테이션 설정 -->
-	<context:component-scan base-package="com.project.controller,com.project.util" />
+	<context:component-scan
+		base-package="com.project.controller,com.project.util" />
 
 	<!-- commons multipart resolver -->
-	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> 
-		<beans:property name="maxUploadSize" value="100000000" /> 
-		<beans:property name="maxInMemorySize" value="100000000" /> 
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="100000000" />
+		<beans:property name="maxInMemorySize"
+			value="100000000" />
 	</beans:bean>
-	
+
 	<!-- DAO -->
-	<beans:bean id="registerDAO" class="com.project.dao.RegisterDAO">
-		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	<beans:bean id="registerDAO"
+		class="com.project.dao.RegisterDAO">
+		<beans:property name="sessionTemplate"
+			ref="sessionTemplate" />
 	</beans:bean>
-	
+
 	<beans:bean id="roomDAO" class="com.project.dao.RoomDAO">
-		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+		<beans:property name="sessionTemplate"
+			ref="sessionTemplate" />
 	</beans:bean>
-	
-	<beans:bean id="roomInfoDAO" class="com.project.dao.RoomInfoDAO">
-		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+
+	<beans:bean id="roomInfoDAO"
+		class="com.project.dao.RoomInfoDAO">
+		<beans:property name="sessionTemplate"
+			ref="sessionTemplate" />
 	</beans:bean>
-	
+
 	<beans:bean id="recoDAO" class="com.project.dao.RecoDAO">
-		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+		<beans:property name="sessionTemplate"
+			ref="sessionTemplate" />
 	</beans:bean>
-	
+
 	<beans:bean id="tingDAO" class="com.project.dao.TingDAO">
-		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+		<beans:property name="sessionTemplate"
+			ref="sessionTemplate" />
 	</beans:bean>
-	
-	<beans:bean id="tingCommentDAO" class="com.project.dao.TingCommentDAO">
-		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+
+	<beans:bean id="tingCommentDAO"
+		class="com.project.dao.TingCommentDAO">
+		<beans:property name="sessionTemplate"
+			ref="sessionTemplate" />
 	</beans:bean>
-	
+
 	<!-- MyBatis DB연결 -->
-	<beans:bean id="sessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-		<beans:constructor-arg ref="sessionFactory"/>
+	<beans:bean id="sessionTemplate"
+		class="org.mybatis.spring.SqlSessionTemplate">
+		<beans:constructor-arg ref="sessionFactory" />
 	</beans:bean>
-	
-	<beans:bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<beans:property name="dataSource" ref="dataSource"/>
-		<beans:property name="configLocation" value="classpath:/mybatis-config.xml"/>
+
+	<beans:bean id="sessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource" />
+		<beans:property name="configLocation"
+			value="classpath:/mybatis-config.xml" />
 	</beans:bean>
-	
-	<beans:bean id="dataSourceSpied" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-		<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:TestDB"/>
-		<beans:property name="username" value="suzi"/>
-		<beans:property name="password" value="a123"/>
+
+	<beans:bean id="dataSourceSpied"
+		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<beans:property name="driverClassName"
+			value="oracle.jdbc.driver.OracleDriver" />
+		<beans:property name="url"
+			value="jdbc:oracle:thin:@localhost:1521:TestDB" />
+		<beans:property name="username" value="suzi" />
+		<beans:property name="password" value="a123" />
 	</beans:bean>
-	
+
+
 	<!-- log4j -->
-	<beans:bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource"> 
-	    <beans:constructor-arg ref="dataSourceSpied" /> 
-	    <beans:property name="logFormatter"> 
-	        <beans:bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter"> 
-	            <beans:property name="loggingType" value="MULTI_LINE" /> 
-	            <beans:property name="sqlPrefix" value="SQL : "/> 
-	        </beans:bean> 
-	    </beans:property> 
+	<beans:bean id="dataSource"
+		class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+		<beans:constructor-arg ref="dataSourceSpied" />
+		<beans:property name="logFormatter">
+			<beans:bean
+				class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
+				<beans:property name="loggingType" value="MULTI_LINE" />
+				<beans:property name="sqlPrefix" value="SQL : " />
+			</beans:bean>
+		</beans:property>
 	</beans:bean>
 
 	<!-- 인터셉터 -->
-	<interceptors>
-		<interceptor>
-			<mapping path="/**"/>
-			<exclude-mapping path="/register*.*"/>
-			<exclude-mapping path="/log*.*"/>
-			<exclude-mapping path="/forgot*.*"/>
-			<exclude-mapping path="/send*.*"/>
-			<exclude-mapping path="/reset*.*"/>
-			<beans:bean class="com.project.util.AuthInterceptor"/>
-		</interceptor>
-	</interceptors>
+	<!-- <interceptors> <interceptor> <mapping path="/**"/> <exclude-mapping 
+		path="/register*.*"/> <exclude-mapping path="/log*.*"/> <exclude-mapping 
+		path="/forgot*.*"/> <exclude-mapping path="/send*.*"/> <exclude-mapping path="/reset*.*"/> 
+		<beans:bean class="com.project.util.AuthInterceptor"/> </interceptor> </interceptors> -->
+
 </beans:beans>

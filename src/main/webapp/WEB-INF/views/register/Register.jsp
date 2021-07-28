@@ -32,6 +32,7 @@
 	display: none;
 }
 
+
 @charset "UTF-8";
 
 .genderLabel{
@@ -74,12 +75,9 @@ input[id="woman"]:checked + label{
 }
 
 
-
-
-
 </style>
 
-
+	
 </head>
 
 <body class="bg-gradient-primary">

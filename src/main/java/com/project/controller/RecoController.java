@@ -19,8 +19,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.dao.RecoDAO;
+import com.project.dao.RegisterDAO;
 import com.project.dto.RecoCoDTO;
 import com.project.dto.RecoDTO;
+import com.project.dto.UserDTO;
 import com.project.dto.UserInfo;
 import com.project.parse.RecoDBStudyParser;
 
@@ -31,6 +33,8 @@ public class RecoController {
 	@Qualifier("recoDAO")
 	RecoDAO dao;
 	
+	@Autowired
+	RegisterDAO Regidao;
 	
 	//메인
 	@RequestMapping(value = "/reco_main", method = RequestMethod.GET)
@@ -90,10 +94,14 @@ public class RecoController {
 		HttpSession session = req.getSession();
 		UserInfo info = (UserInfo) session.getAttribute("userInfo");
 		
+		UserDTO dto = Regidao.getUserInfo(info.getUserId());
+
+		
 		model.addAttribute("recoNum",recoNum);
 		model.addAttribute("list", list);
 		model.addAttribute("commentLists", commentLists);
 		req.setAttribute("info", info);
+		req.setAttribute("dto", dto);
 		
 		return "/reco/showMap";
 

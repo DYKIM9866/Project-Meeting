@@ -336,7 +336,7 @@
 								</div>
 								<div>
 									<textarea name="introduce" rows="12" cols="63" style="resize: none;"
-										placeholder=" 방을 소개해주세요!! ?&#13;&#10; 정성들여 글을 쓰면 신청자가 더 많아져요!" 
+										placeholder=" 방을 소개해주세요! &#13;&#10; 정성들여 글을 쓰면 신청자가 더 많아져요!" 
 										class="form-control"><c:if test="${!empty list }">${list.introduce }&#10;${list.content }&#10;${list.location }</c:if></textarea>
 								</div>
 								<div class="form-group fileBox preview-image">

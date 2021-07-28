@@ -10,22 +10,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-
+<script src="js/header.js?ver=3"></script>
+<link href="css/header.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-
+	
 	<!-- Topbar -->
 	<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
 	<!-- Sidebar Toggle (Topbar) -->
+	
 	<form class="form-inline">
 		<button id="sidebarToggleTop"
 			class="btn btn-link d-md-none rounded-circle mr-3">
 			<i class="fa fa-bars"></i>
 		</button>
 	</form>
-	
-	
+
 
 	<!-- Topbar Navbar -->
 	<ul class="navbar-nav ml-auto">
@@ -69,7 +70,6 @@
                             </div>
                         </li>	
 	
-
 		<!-- Nav Item - Messages -->
 		<li class="nav-item dropdown no-arrow mx-1"><a
 			class="nav-link dropdown-toggle" href="#" id="messagesDropdown"
@@ -172,7 +172,7 @@
 			</div>
 		</div>
 	</div>
-
+	
 	<!-- Modal Message -->
 	<script type="text/javascript">
 		var sender = "";

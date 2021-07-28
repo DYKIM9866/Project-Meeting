@@ -14,7 +14,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Insert title here</title>
+<title>ShowMap</title>
 
 <!-- Custom fonts for this template -->
 <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
@@ -31,6 +31,7 @@
 <!-- Custom styles for this page -->
 <link href="vendor/datatables/dataTables.bootstrap4.min.css"
 	rel="stylesheet">
+
 
 </head>
 
@@ -88,18 +89,22 @@
 						<span><a href="javascript:openWindowPop('https://map.kakao.com/link/to/${list.title },${list.lat },${list.lon}', '갈찾기');">
 						<img alt="kakao_map" src="img/map.png"></a></span>
 						<br/>
-						<c:choose>
-							<c:when test="${list.subject eq 'study'}">
-								<button onclick="location.href = 'created.action?subject=공부&recoNum=${list.recoNum}'" type="button" class="btn btn-primary" style="width: 120px; height: 40px;">방만들기</button>
-							</c:when>
-							<c:when test="${list.subject eq 'travel'}">
-								<button onclick="location.href = 'created.action?subject=여행&recoNum=${list.recoNum}'" type="button" class="btn btn-primary" style="width: 120px; height: 40px;">방만들기</button>
-							</c:when>
-							<c:when test="${list.subject eq 'sports'}">
-								<button onclick="location.href = 'created.action?subject=운동&recoNum=${list.recoNum}'" type="button" class="btn btn-primary" style="width: 120px; height: 40px;">방만들기</button>
-							</c:when>
-						</c:choose>
-						
+						<c:if test="${dto.right==1 }">
+							<c:choose>
+								<c:when test="${list.subject eq 'study'}">
+									<button onclick="location.href = 'created.action?subject=공부&recoNum=${list.recoNum}'" type="button" class="btn btn-primary" style="width: 120px; height: 40px;">방만들기</button>
+								</c:when>
+								<c:when test="${list.subject eq 'travel'}">
+									<button onclick="location.href = 'created.action?subject=여행&recoNum=${list.recoNum}'" type="button" class="btn btn-primary" style="width: 120px; height: 40px;">방만들기</button>
+								</c:when>
+								<c:when test="${list.subject eq 'sports'}">
+									<button onclick="location.href = 'created.action?subject=운동&recoNum=${list.recoNum}'" type="button" class="btn btn-primary" style="width: 120px; height: 40px;">방만들기</button>
+								</c:when>
+							</c:choose>
+						</c:if>
+						<c:if test="${dto.right!=1 }">
+							<button onclick="alert('이메일 인증을 해주세요!');location.href = 'myPage.action';" type="button" class="btn btn-primary" style="width: 120px; height: 40px;">방만들기</button>
+						</c:if>
 						<br/>
 						<br/>
 						<!--  -->
@@ -147,17 +152,21 @@
                             <div class="col-lg-3">
                  <div class="card mb-2">
 							<div class="card-header bg-light">
-							        <i class="fa fa-comment fa"></i> ${dto.userId }
+							        <i class="fa fa-comment fa"></i>
+							        ${dto.userId }
+							        
+							
 							        
 							</div>
+							
 							<div class="card-body">
 								<ul class="list-group list-group-flush">
 								    <li class="list-group-item">
 									
 									<div class="form-inline mb-2">
 										<label for="replyId"><i class="fa fa-user-circle-o fa-2x"></i></label>
-										⭐ : ${dto.star }<br/>
-										${dto.content }
+											⭐ : ${dto.star }<br/>
+											${dto.content }
 									</div>
 										
 								    

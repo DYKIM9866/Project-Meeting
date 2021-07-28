@@ -230,11 +230,13 @@ h1 {
 											<c:when test="${dto.currentP >= dto.totalP }">
 												<p style="font-size: 1.6rem; ">인원이 가득차서 신청이 불가능해요!</p>
 											</c:when>
+										
+										<c:otherwise>
+											<a data-toggle="modal" href="#proposeRoom" 
+												data-roomnum="${dto.roomNum }" data-title = "${dto.title}"
+												class="btn btn-primary btn-user btn-propose btn-size"> 방 참여 신청하기 </a>
+										</c:otherwise>
 										</c:choose>
-										<a data-toggle="modal" href="#proposeRoom" 
-											data-roomnum="${dto.roomNum }" data-title = "${dto.title}"
-											class="btn btn-primary btn-user btn-propose btn-size"> 방 참여 신청하기 </a>
-	
 									</c:if>
 									<!-- 마이룸 테이블의 member 가져오기 : dto.manager && dto.member -->
 									<c:if test="${memberUser != 0}">
@@ -242,7 +244,7 @@ h1 {
 										방 참가하기</a>
 									</c:if>
 								</div>
-								</div>
+							</div>
 
 							<hr>
 							<div class="text-center">
